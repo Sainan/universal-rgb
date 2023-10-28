@@ -2,8 +2,8 @@
 
 Because having a different brand doesn't mean you have to miss out.
 
-- [Supported Games](Supported Games)
-- [Supported Keyboards](Supported Keyboards)
+- [Supported Games](Supported%20Games.md)
+- [Supported Keyboards](Supported%20Keyboards.md)
 
 ## Why not Chroma Connect?
 
