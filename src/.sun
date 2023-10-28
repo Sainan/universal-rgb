@@ -1,0 +1,4 @@
++*.cpp
+require ../../Soup/soup
+
+name universal-rgb-dev
