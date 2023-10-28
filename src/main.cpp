@@ -109,11 +109,14 @@ int entrypoint(std::vector<std::string>&& args, bool console)
 					}
 					outputs = kbRgb::getAll(req.path == "/api/refresh-outputs");
 				}
-				Thread t([]
+				if (active)
 				{
-					pushCanvasToOutputs();
-				});
-				t.awaitCompletion();
+					Thread t([]
+					{
+						pushCanvasToOutputs();
+					});
+					t.awaitCompletion();
+				}
 			}
 			std::vector<std::string> output_names;
 			{
