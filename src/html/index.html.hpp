@@ -15,9 +15,7 @@ R"EOC(
 			<div class="custom-checkbox mb-20"><input type="checkbox" id="logitech-checkbox" onchange="updateInput(this);" /><label for="logitech-checkbox">Logitech Liaison</label></div>
 			<hr>
 			<h3>Outputs</h3>
-			<ul id="outputs">
-				<li>No supported SDK or device detected.</li>
-			</ul>
+			<ul id="outputs"></ul>
 			<p>
 				<button class="btn btn-primary" onclick="refreshOutputsNoChroma();">Refresh</button>
 				<button class="btn btn-default" onclick="refreshOutputs();">Refresh (Including Chroma)</button> <!-- Weird issue with Warframe where if we use the Chroma API, it fails to init Chroma, so not outputting to Chroma by default. -->
@@ -55,6 +53,10 @@ R"EOC(
 		function showOutputs(promise)
 		{
 			promise.then(res => res.text()).then(data => {
+				if (data.length == 0)
+				{
+					data = "No supported SDK or device detected.";
+				}
 				document.getElementById("outputs").innerHTML = "";
 				data.split("%").forEach(out => {
 					let li = document.createElement("li");
